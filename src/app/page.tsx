@@ -14,7 +14,7 @@ function DisplayBookmarks({ bookmarks }: { bookmarks: BookmarkType[] }): JSX.Ele
   return (
     <div className={styles.bookmarkContainer}>
       {bookmarks.length === 0 ? (
-        <p>Add a bookmark to get started.</p>
+        <h2>Add a bookmark to get started.</h2>
       ) : (
         bookmarks.map((bookmark: BookmarkType) => (
           <Bookmark key={bookmark.id} {...bookmark} />

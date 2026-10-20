@@ -29,3 +29,10 @@
   width: 100%;
   max-width: 900px;
 }
+
+.bookmarkContainer > h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
