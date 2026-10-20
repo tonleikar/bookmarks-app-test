@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from './AddBookmark.module.css';
 import type { Bookmark } from "./bookmark";
-import { loadBookmarks, saveBookmarks } from "./bookmarks-storage";
+import { loadBookmarks, saveBookmarks, loadExamples } from "./bookmarks-storage";
 
 export default function AddBookmark({ onAdd }: { onAdd?: (bookmark: Bookmark) => void }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,6 +34,14 @@ export default function AddBookmark({ onAdd }: { onAdd?: (bookmark: Bookmark) =>
     setIsOpen(false);
   };
 
+  const handleLoadExamples = () => {
+    const exampleBookmarks = loadExamples();
+    const bookmarks = loadBookmarks();
+    saveBookmarks([...bookmarks, ...exampleBookmarks]);
+    exampleBookmarks.forEach((bookmark) => onAdd?.(bookmark));
+    setIsOpen(false);
+  };
+
   return (
     <div>
       <button className={styles.addBookmarkButton} onClick={() => setIsOpen(true)}>
@@ -53,7 +61,8 @@ export default function AddBookmark({ onAdd }: { onAdd?: (bookmark: Bookmark) =>
             }
           }}
         >
-          <div className={styles.closeDialogButton} onClick={() => setIsOpen(false)}>✕</div>
+          <div className={styles.dialogButton} onClick={() => setIsOpen(false)}>✕</div>
+          <div className={`${styles.dialogButton} ${styles.loadExamples}`} onClick={() => handleLoadExamples()}>?</div>
           <form onSubmit={handleSubmit} className={styles.content}>
             <h2 className={styles.title}>Add Bookmark</h2>
             <label className={styles.field}>

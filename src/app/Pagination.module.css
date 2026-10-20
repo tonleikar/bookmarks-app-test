@@ -1,0 +1,42 @@
+.pagination {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.25rem 2.5rem;
+  background-color: #d9d9d9;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.arrow,
+.page {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  font-family: var(--font-geist-sans);
+  font-size: 1.25rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.arrow:hover:not(:disabled),
+.page:hover {
+  color: #333;
+  transform: scale(1.1);
+}
+
+.arrow:disabled {
+  color: #ccc;
+  cursor: default;
+}
+
+.activePage {
+  color: #000;
+}
