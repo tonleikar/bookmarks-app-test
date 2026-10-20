@@ -1,40 +1,146 @@
 .bookmark {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  touch-action: none;
-  user-select: none;
-  cursor: grab;
-  background-image: url('/paper-ball.png');
+  position: relative;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  background-image: url('../../public/paper-ball-1.png');
   background-size: contain;
+}
+
+.bookmark:hover {
+  background-image: url('../../public/paper-ball-2.png');
+  transform: scale(1.05);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.bookmarkInitial {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  font-family: var(--font-special-elite);
+  font-size: 5rem;
+  color: var(--text-primary, #000);
+  mix-blend-mode: overlay;
+}
+
+.dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: 800px;
+  height: 800px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  background-image: url('../../public/paper-unfold-02.png');
+  background-size: cover;
   background-repeat: no-repeat;
+  outline: none;
 }
 
-.open {
-  width: 200px;
-  height: 260px;
-  background-image: url('/paper-open.png');
+.dialogUnfolding {
+  background-image: url('../../public/paper-unfold-01.png');
 }
 
-.dragging {
-  cursor: grabbing;
+.closeDialogButton {
+  position: absolute;
+  top: 4rem;
+  right: 1rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 999px;
+  background-color: transparent;
+  color: #333;
+  font-size: 1.25rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: background-color 0.1s ease-in-out;
+}
+
+.closeDialogButton::hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.closeDialogButton:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .content {
-  padding: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 130px 150px 60px 130px;
+  font-family: var(--font-arimo);
+  color: #111;
 }
 
-.bookmark-tag-container {
-  display: flex;
-  width: 100%;
-  padding: 10px;
-  overflow: hidden;
+.title {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #111;
 }
-.bookmark-tag {
+
+.url {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1.15rem;
+  color: #666;
   text-decoration: none;
-  color: grey;
-  font-size: x-small;
-  margin: 10px;
-  background: white;
-  border-radius: 99999px;
+}
+
+.url:hover {
+  text-decoration: underline;
+}
+
+.description {
+  max-width: 85%;
+  margin-top: 2.5rem;
+  font-size: 1.3rem;
+  line-height: 1.7;
+  color: #111;
+}
+
+.tagsSection {
+  margin-top: 2.5rem;
+}
+
+.tagsLabel {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.bookmarkTagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+.bookmarkTag {
+  list-style: none;
+  padding: 0.6rem 1.5rem;
+  font-size: 1.1rem;
+  color: #fff;
+  background: rgba(55, 55, 55, 0.75);
+  border-radius: 999px;
 }
