@@ -1,0 +1,40 @@
+.bookmark {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+  background-image: url('/paper-ball.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.open {
+  width: 200px;
+  height: 260px;
+  background-image: url('/paper-open.png');
+}
+
+.dragging {
+  cursor: grabbing;
+}
+
+.content {
+  padding: 16px;
+}
+
+.bookmark-tag-container {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  overflow: hidden;
+}
+.bookmark-tag {
+  text-decoration: none;
+  color: grey;
+  font-size: x-small;
+  margin: 10px;
+  background: white;
+  border-radius: 99999px;
+}
